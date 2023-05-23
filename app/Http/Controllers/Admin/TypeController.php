@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TypeController extends Controller
 {
@@ -60,7 +61,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin/types/edit', compact('type'));
     }
 
     /**
@@ -72,7 +73,13 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $this->validation($request);
+
+        $formData = $request->all();
+        $type->update($formData);
+        $type->save();
+
+        return redirect()->route('admin.types.show', $type);
     }
 
     /**
@@ -83,6 +90,22 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index');
+    }
+
+
+    public function validation($request)
+    {
+        $formData = $request->all();
+        $validator = Validator::make($formData, [
+            'name' => 'required|max:100',
+            'description' => 'required|max:255',
+        ], [
+            'name.required' => 'Devi inserire il titolo',
+            'description.required' => 'Inserisci una breve descrizione',
+        ])->validate();
+
+        return $validator;
     }
 }
