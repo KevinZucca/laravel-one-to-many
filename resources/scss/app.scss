@@ -95,6 +95,16 @@
     }
 }
 
+#main-content {
+  display: flex;
+  
+  #aside {
+    width: 200px;
+    border-right: 1px solid rgba(0, 0, 0, 0.274);
+  }
+}
+
+
 
 
 

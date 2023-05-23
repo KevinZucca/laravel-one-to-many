@@ -41,6 +41,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <div id='aside' class="container">
+                    <a href="{{route('admin.projects.index')}}">Progetti</a>
+                    <a href="{{route('admin.projects.create')}}">Aggiungi un post</a>
+                    <a href="{{route('admin.types.index')}}">Tipologie</a>
+                 </div>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
@@ -93,9 +99,12 @@
             </div>
         </nav>
 
+           
         <main class="">
             @yield('content')
         </main>
+        
+
     </div>
 </body>
 

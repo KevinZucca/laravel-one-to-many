@@ -123,12 +123,13 @@ class ProjectController extends Controller
             'description' => 'required|max:255',
             'github_link' => 'required|max:255',
             'languages' => 'required|max:100',
-            'type_id' => 'nullable'
+            'type_id' => 'nullable|exists:types,id'
         ], [
             'name.required' => 'Devi inserire il titolo',
             'description.required' => 'Inserisci una breve descrizione',
             'github_link.required' => "E' necessario allegare il link di github",
             'languages.required' => 'Inserire almeno un linguaggio di quelli utilizzati',
+            'type_id.exists' => "E' necessario inserire la tipologia"
         ])->validate();
 
         return $validator;
