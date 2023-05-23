@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Symfony\Component\Mime\Part\Multipart\FormDataPart;
 
 class ProjectController extends Controller
 {
@@ -28,7 +30,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin/create');
+        $types = Type::all();
+        return view('admin/create', compact('types'));
     }
 
     /**
@@ -50,6 +53,7 @@ class ProjectController extends Controller
         $project->github_link = $formData['github_link'];
         $project->languages = $formData['languages'];
         $project->slug = Str::slug($formData['name'], '-');
+        $project->type_id = $formData['type_id'];
 
         $project->save();
 
@@ -64,7 +68,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin/show', compact('project'));
+        $types = Type::all();
+
+        return view('admin/show', compact('project', 'types'));
     }
 
     /**
@@ -115,7 +121,8 @@ class ProjectController extends Controller
             'name' => 'required|max:100',
             'description' => 'required|max:255',
             'github_link' => 'required|max:255',
-            'languages' => 'required|max:100'
+            'languages' => 'required|max:100',
+            'type_id' => 'nullable'
         ], [
             'name.required' => 'Devi inserire il titolo',
             'description.required' => 'Inserisci una breve descrizione',
