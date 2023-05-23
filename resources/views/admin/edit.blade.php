@@ -30,6 +30,18 @@
         </div>
 
         <div class="form-group mt-3">
+            <label for="type_id">Tipologia</label>
+            <select name="type_id" id="type_id" class="form-select">
+              <option value="">Nessun tipo</option>
+  
+              @foreach ($types as $type)
+                  <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''}}>{{$type->name}}</option>
+              @endforeach
+  
+            </select> 
+        </div>
+
+        <div class="form-group mt-3">
             <label for="languages">Linguaggi di programmazione</label>
             <input type="text" name="languages" class="form-control @error ('languages') is-invalid @enderror" id="formGroupExampleInput2" placeholder="Inserisci i linguaggi che hai utilizzato" value="{{old('languages') ? : $project->languages}}">
             @error('languages')
@@ -59,6 +71,9 @@
                 <i class="fa-solid fa-trash" style="color: #cb2a2a;"></i>
             </button>
         </div>
+
+      </form>
+
         
         
         <div class="modal-footer">
@@ -82,7 +97,6 @@
                     </div>
                 </form>
         </div>
-      </form>
 </div>
 
 
