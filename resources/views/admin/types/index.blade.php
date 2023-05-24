@@ -29,6 +29,8 @@
             
             </tbody>
           </table>
+
+          <a href="{{route('admin.types.create')}}">Crea una nuova tipologia</a>
     </div>
 
 @endsection

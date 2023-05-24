@@ -115,7 +115,7 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index');
     }
 
-    public function validation($request)
+    private function validation($request)
     {
         $formData = $request->all();
         $validator = Validator::make($formData, [

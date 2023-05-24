@@ -15,7 +15,7 @@
 #dashboard-container {
     display: flex;
 
-    height: 500px;
+    height: 400px;
     margin:  50px auto;
     padding: 20px;
 
@@ -41,7 +41,8 @@
 
         .skill {
             display: none;
-            font-size: 1.4em;
+            font-size: 1.2em;
+            font-family:'Courier New', Courier, monospace;
 
             &#html-skill {
                 color: rgba(255, 166, 0, 0.781);
@@ -72,6 +73,44 @@
     #projects-link {
         text-decoration: none;
     }
+}
+
+#dashboard-main-container {
+  width: 100%;
+  height: 500px;
+
+  background-color: #eef0f2;
+
+  #autobiography-container {
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 20px;
+
+    #autobiography-descript {
+      width: 60%;
+      height: 90%;
+
+      padding: 20px;
+      background: white;
+    }
+
+    #autobiography-photo  {
+      width: 300px;
+      height: 300px;
+      align-self: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+    }
+  }
 }
 
 

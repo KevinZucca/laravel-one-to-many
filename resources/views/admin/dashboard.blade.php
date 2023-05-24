@@ -54,6 +54,23 @@
 </div>
 
 
+
+{{-- autobiography section --}}
+
+<div id="dashboard-main-container" class="full-container">
+    <div id="autobiography-container" class="container">
+        <div id="autobiography-descript">
+            <h2>Chi sono</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut assumenda impedit iste quidem placeat tenetur illo ea corrupti. Quas expedita amet architecto quibusdam accusantium unde modi voluptates distinctio possimus placeat?</p>
+        </div>
+
+        <div id="autobiography-photo">
+            <img src="https://picsum.photos/200" alt="autobiography-photo">
+        </div>
+    </div>
+</div>
+
+
 <script>
     let skillsContainer = document.getElementById('skills-container');
     let skills = document.querySelectorAll(".skill");

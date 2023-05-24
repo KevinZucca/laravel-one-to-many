@@ -10,6 +10,7 @@
             <th scope="col">Descrizione</th>
             <th scope="col">Link a Github</th>
             <th scope="col">Linguaggi utilizzati</th>
+            <th scope="col">Tipologia</th>
             <th scope="col">Dettagli</th>
           </tr>
         </thead>
@@ -28,6 +29,9 @@
               </td>
               <td>
                 {{$singleProject->languages}}
+              </td>
+              <td>
+                {{$singleProject->name}}
               </td>
               <td>
                 <a href="{{route('admin.projects.show', $singleProject->id)}}"><i class="fa-regular fa-file"></i></a>

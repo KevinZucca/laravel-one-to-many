@@ -43,8 +43,9 @@
 
                 <div id='aside' class="container">
                     <a href="{{route('admin.projects.index')}}">Progetti</a>
-                    <a href="{{route('admin.projects.create')}}">Aggiungi un post</a>
+                    <a href="{{route('admin.projects.create')}}">Aggiungi un progetto</a>
                     <a href="{{route('admin.types.index')}}">Tipologie</a>
+                    <a href="#">Tecnologie</a>
                  </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
